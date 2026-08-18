@@ -101,10 +101,11 @@ function calcPair(designId, actualId, diffId, tolId) {
 
   const diff = actualVal - designVal;
 
-  // Formatting (preserve decimal precision if present)
+  // Formatting integers as +3, +1, -1 (matching Picture 2)
   let formattedDiff = '';
-  if (Number.isInteger(diff)) {
-    formattedDiff = diff > 0 ? `+${diff}` : `${diff}`;
+  if (Math.abs(diff - Math.round(diff)) < 0.0001) {
+    const intVal = Math.round(diff);
+    formattedDiff = intVal > 0 ? `+${intVal}` : `${intVal}`;
   } else {
     const fixedStr = diff.toFixed(1);
     formattedDiff = diff > 0 ? `+${fixedStr}` : `${fixedStr}`;
@@ -146,7 +147,7 @@ function updateFinalVerdict() {
 }
 
 /**
- * Preloads exact sample data from the user screenshot
+ * Preloads exact sample data from Picture 2
  */
 function loadSampleData() {
   document.getElementById('orderNo').value = '25-1050';
@@ -154,7 +155,7 @@ function loadSampleData() {
   document.getElementById('supplierName').value = '株式会社 北川組鉄工所';
   document.getElementById('itemNo').value = '①-1';
   document.getElementById('columnMark').value = 'K-1CX5Y14';
-  document.getElementById('dimSpec').value = '950 ×  950 ×  50 /  50 ×  7,003';
+  document.getElementById('dimSpec').value = '950 × 950 × 50 / 50 × 7,003';
 
   // Length
   document.getElementById('lenDesign').value = '7003.0';

@@ -80,7 +80,7 @@
     <div class="table-responsive">
       <table class="bbox-inspection-table">
 
-        <!-- SECTION 1: 品番, 柱マーク, 全長, ダイアフラム位置 ( 累積 ) -->
+        <!-- TOP SECTION HEADERS -->
         <thead>
           <tr class="th-main-row">
             <th class="col-hinban" rowspan="2">品番</th>
@@ -88,10 +88,12 @@
               <div class="th-mark-title">柱マーク</div>
               <div class="th-sub-dim">寸法 : W × F × t1 / t2 × L</div>
             </th>
-            <th class="col-zenchou" rowspan="2">全長</th>
-            <th class="col-diaphragm-header" colspan="9">ダイアフラム位置 （ 累積 ）</th>
+            <th class="col-zenchou" colspan="2">全長</th>
+            <th class="col-diaphragm-header" colspan="10">ダイアフラム位置 （ 累積 ）</th>
           </tr>
           <tr class="th-sub-num-row">
+            <th colspan="2" class="th-sub-l">L</th>
+            <th class="dia-lbl-col"></th>
             <th class="dia-col">1</th>
             <th class="dia-col">2</th>
             <th class="dia-col">3</th>
@@ -106,96 +108,102 @@
 
         <tbody>
 
-          <!-- TOP GRID BLOCK (LENGTH & DIAPHRAGM POSITIONS) -->
+          <!-- ROW 1: 設計値 -->
           <tr>
-            <!-- 品番 -->
-            <td rowspan="4" class="td-hinban text-center">
+            <td rowspan="3" class="td-hinban text-center">
               <input type="text" id="itemNo" value="①-1" class="input-cell text-center font-bold" />
             </td>
-
-            <!-- 柱マーク & 寸法 -->
             <td rowspan="3" class="td-mark text-center">
               <input type="text" id="columnMark" value="K-1CX5Y14" class="input-cell text-center font-bold font-lg" />
             </td>
 
-            <!-- 全長 - 設計値 -->
+            <!-- 全長 設計値 -->
             <td class="td-lbl">設計値</td>
             <td class="td-num">
-              <input type="number" step="0.1" id="lenDesign" value="7003.0" class="input-cell text-right calc-trigger" />
+              <input type="number" step="0.1" id="lenDesign" value="7003.0" class="input-cell text-center calc-trigger" />
             </td>
-            <!-- ダイアフラム 1~9 設計値 -->
+
+            <!-- ダイアフラム 設計値 -->
             <td class="td-lbl">設計値</td>
-            <td class="td-num"><input type="number" step="0.1" id="dia1_design" value="1253.0" class="input-cell text-right calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia2_design" value="2257.0" class="input-cell text-right calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia3_design" value="" class="input-cell text-right calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia4_design" value="" class="input-cell text-right calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia5_design" value="" class="input-cell text-right calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia6_design" value="" class="input-cell text-right calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia7_design" value="" class="input-cell text-right calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia8_design" value="" class="input-cell text-right calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia9_design" value="" class="input-cell text-right calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia1_design" value="1253.0" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia2_design" value="2257.0" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia3_design" value="" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia4_design" value="" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia5_design" value="" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia6_design" value="" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia7_design" value="" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia8_design" value="" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia9_design" value="" class="input-cell text-center calc-trigger" /></td>
           </tr>
 
+          <!-- ROW 2: 実測値 -->
           <tr>
-            <!-- 全長 - 実測値 -->
+            <!-- 全長 実測値 -->
             <td class="td-lbl">実測値</td>
             <td class="td-num">
-              <input type="number" step="0.1" id="lenActual" value="7006.0" class="input-cell text-right calc-trigger" />
+              <input type="number" step="0.1" id="lenActual" value="7006.0" class="input-cell text-center calc-trigger" />
             </td>
-            <!-- ダイアフラム 1~9 実測値 -->
+
+            <!-- ダイアフラム 実測値 -->
             <td class="td-lbl">実測値</td>
-            <td class="td-num"><input type="number" step="0.1" id="dia1_actual" value="1254.0" class="input-cell text-right calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia2_actual" value="2256.0" class="input-cell text-right calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia3_actual" value="" class="input-cell text-right calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia4_actual" value="" class="input-cell text-right calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia5_actual" value="" class="input-cell text-right calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia6_actual" value="" class="input-cell text-right calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia7_actual" value="" class="input-cell text-right calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia8_actual" value="" class="input-cell text-right calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia9_actual" value="" class="input-cell text-right calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia1_actual" value="1254.0" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia2_actual" value="2256.0" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia3_actual" value="" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia4_actual" value="" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia5_actual" value="" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia6_actual" value="" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia7_actual" value="" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia8_actual" value="" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia9_actual" value="" class="input-cell text-center calc-trigger" /></td>
           </tr>
 
+          <!-- ROW 3: 許容値 (RED) -->
           <tr>
-            <!-- 全長 - 許容値 -->
+            <!-- 全長 許容値 -->
             <td class="td-lbl text-red">許容値</td>
             <td class="td-num text-red">
-              <input type="text" id="lenTol" value="±3.0" class="input-cell text-right text-red font-bold calc-trigger" />
+              <input type="text" id="lenTol" value="±3.0" class="input-cell text-center text-red font-bold calc-trigger" />
             </td>
-            <!-- ダイアフラム 1~9 許容値 -->
+
+            <!-- ダイアフラム 許容値 -->
             <td class="td-lbl text-red">許容値</td>
-            <td class="td-num text-red"><input type="text" id="dia1_tol" value="±3.0" class="input-cell text-right text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="dia2_tol" value="±3.0" class="input-cell text-right text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="dia3_tol" value="" class="input-cell text-right text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="dia4_tol" value="" class="input-cell text-right text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="dia5_tol" value="" class="input-cell text-right text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="dia6_tol" value="" class="input-cell text-right text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="dia7_tol" value="" class="input-cell text-right text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="dia8_tol" value="" class="input-cell text-right text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="dia9_tol" value="" class="input-cell text-right text-red font-bold" /></td>
+            <td class="td-num text-red"><input type="text" id="dia1_tol" value="±3.0" class="input-cell text-center text-red font-bold" /></td>
+            <td class="td-num text-red"><input type="text" id="dia2_tol" value="±3.0" class="input-cell text-center text-red font-bold" /></td>
+            <td class="td-num text-red"><input type="text" id="dia3_tol" value="" class="input-cell text-center text-red font-bold" /></td>
+            <td class="td-num text-red"><input type="text" id="dia4_tol" value="" class="input-cell text-center text-red font-bold" /></td>
+            <td class="td-num text-red"><input type="text" id="dia5_tol" value="" class="input-cell text-center text-red font-bold" /></td>
+            <td class="td-num text-red"><input type="text" id="dia6_tol" value="" class="input-cell text-center text-red font-bold" /></td>
+            <td class="td-num text-red"><input type="text" id="dia7_tol" value="" class="input-cell text-center text-red font-bold" /></td>
+            <td class="td-num text-red"><input type="text" id="dia8_tol" value="" class="input-cell text-center text-red font-bold" /></td>
+            <td class="td-num text-red"><input type="text" id="dia9_tol" value="" class="input-cell text-center text-red font-bold" /></td>
           </tr>
 
-          <!-- DIMENSION FORMULA ROW & DIFFERENCE ROW -->
+          <!-- ROW 4: 差 AND DIMENSION FORMULA AT BOTTOM -->
           <tr>
-            <td class="td-dim-spec text-left">
-              <span class="square-symbol">□</span>
-              <input type="text" id="dimSpec" value="950 ×  950 ×  50 /  50 ×  7,003" class="input-cell dim-spec-input" />
+            <td class="td-square-cell text-center">
+              <input type="text" value="□" class="input-cell text-center square-input" />
             </td>
-            <!-- 全長 - 差 -->
+            <td class="td-dim-spec text-left">
+              <input type="text" id="dimSpec" value="950 × 950 × 50 / 50 × 7,003" class="input-cell dim-spec-input" />
+            </td>
+
+            <!-- 全長 差 -->
             <td class="td-lbl">差</td>
             <td class="td-num">
-              <input type="text" id="lenDiff" value="+3.0" readonly class="input-cell text-right font-bold diff-output" />
+              <input type="text" id="lenDiff" value="+3" readonly class="input-cell text-center font-bold diff-output" />
             </td>
-            <!-- ダイアフラム 1~9 差 -->
+
+            <!-- ダイアフラム 差 -->
             <td class="td-lbl">差</td>
-            <td class="td-num"><input type="text" id="dia1_diff" value="+1.0" readonly class="input-cell text-right font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="dia2_diff" value="-1.0" readonly class="input-cell text-right font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="dia3_diff" value="" readonly class="input-cell text-right font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="dia4_diff" value="" readonly class="input-cell text-right font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="dia5_diff" value="" readonly class="input-cell text-right font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="dia6_diff" value="" readonly class="input-cell text-right font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="dia7_diff" value="" readonly class="input-cell text-right font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="dia8_diff" value="" readonly class="input-cell text-right font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="dia9_diff" value="" readonly class="input-cell text-right font-bold diff-output" /></td>
+            <td class="td-num"><input type="text" id="dia1_diff" value="+1" readonly class="input-cell text-center font-bold diff-output" /></td>
+            <td class="td-num"><input type="text" id="dia2_diff" value="-1" readonly class="input-cell text-center font-bold diff-output" /></td>
+            <td class="td-num"><input type="text" id="dia3_diff" value="" readonly class="input-cell text-center font-bold diff-output" /></td>
+            <td class="td-num"><input type="text" id="dia4_diff" value="" readonly class="input-cell text-center font-bold diff-output" /></td>
+            <td class="td-num"><input type="text" id="dia5_diff" value="" readonly class="input-cell text-center font-bold diff-output" /></td>
+            <td class="td-num"><input type="text" id="dia6_diff" value="" readonly class="input-cell text-center font-bold diff-output" /></td>
+            <td class="td-num"><input type="text" id="dia7_diff" value="" readonly class="input-cell text-center font-bold diff-output" /></td>
+            <td class="td-num"><input type="text" id="dia8_diff" value="" readonly class="input-cell text-center font-bold diff-output" /></td>
+            <td class="td-num"><input type="text" id="dia9_diff" value="" readonly class="input-cell text-center font-bold diff-output" /></td>
           </tr>
 
         </tbody>
