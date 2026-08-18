@@ -277,6 +277,11 @@ body {
   background-color: #ffffff;
 }
 
+.td-lbl-actual {
+  font-weight: 700;
+  background-color: #f8fafc;
+}
+
 .td-num {
   text-align: center;
   padding: 0 2px;
@@ -349,9 +354,32 @@ body {
   color: var(--text-primary);
 }
 
-.input-cell:focus {
-  background-color: #eff6ff;
+/* EDITABLE VS READONLY INPUT STYLING */
+.editable-input {
+  background-color: #ffffff;
+  cursor: text;
+  transition: all 0.15s ease;
+}
+
+.editable-input:hover {
+  background-color: #f0f9ff;
+}
+
+.editable-input:focus {
+  background-color: #e0f2fe;
+  outline: 2px solid #0284c7;
   border-radius: 2px;
+}
+
+.readonly-input {
+  cursor: default;
+  user-select: none;
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.row-actual-editable {
+  background-color: #ffffff;
 }
 
 /* Text Utility Classes */
@@ -387,6 +415,11 @@ body {
     border: none;
     box-shadow: none;
     padding: 10px 15px;
+  }
+
+  .editable-input:focus {
+    outline: none;
+    background-color: transparent;
   }
 
   @page {

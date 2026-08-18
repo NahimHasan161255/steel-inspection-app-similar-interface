@@ -50,19 +50,19 @@
         <div class="header-row">
           <span class="header-label">受注No. :</span>
           <div class="order-box">
-            <input type="text" id="orderNo" value="25-1050" class="input-flat order-input" />
+            <input type="text" id="orderNo" value="25-1050" readonly class="input-flat order-input readonly-input" />
           </div>
         </div>
         <div class="header-row">
           <span class="header-label">工事名 :</span>
           <span class="header-value-underline">
-            <input type="text" id="projectName" value="八重洲二丁目地区再開発事業新築工事(1節)" class="input-flat full-w-input" />
+            <input type="text" id="projectName" value="八重洲二丁目地区再開発事業新築工事(1節)" readonly class="input-flat full-w-input readonly-input" />
           </span>
         </div>
         <div class="header-row">
           <span class="header-label">持込先 :</span>
           <span class="header-value-underline">
-            <input type="text" id="supplierName" value="株式会社 北川組鉄工所" class="input-flat full-w-input" />
+            <input type="text" id="supplierName" value="株式会社 北川組鉄工所" readonly class="input-flat full-w-input readonly-input" />
           </span>
         </div>
       </div>
@@ -72,7 +72,7 @@
       </div>
 
       <div class="header-right">
-        <span class="page-no">No. <input type="text" id="pageCurrent" value="1" class="page-input" /> / <input type="text" id="pageTotal" value="19" class="page-input" /></span>
+        <span class="page-no">No. <input type="text" id="pageCurrent" value="1" readonly class="page-input readonly-input" /> / <input type="text" id="pageTotal" value="19" readonly class="page-input readonly-input" /></span>
       </div>
     </header>
 
@@ -108,102 +108,102 @@
 
         <tbody>
 
-          <!-- ROW 1: 設計値 -->
+          <!-- ROW 1: 設計値 (READONLY) -->
           <tr>
             <td rowspan="3" class="td-hinban text-center">
-              <input type="text" id="itemNo" value="①-1" class="input-cell text-center font-bold" />
+              <input type="text" id="itemNo" value="①-1" readonly class="input-cell text-center font-bold readonly-input" />
             </td>
             <td rowspan="3" class="td-mark text-center">
-              <input type="text" id="columnMark" value="K-1CX5Y14" class="input-cell text-center font-bold font-lg" />
+              <input type="text" id="columnMark" value="K-1CX5Y14" readonly class="input-cell text-center font-bold font-lg readonly-input" />
             </td>
 
-            <!-- 全長 設計値 -->
+            <!-- 全長 設計値 (READONLY) -->
             <td class="td-lbl">設計値</td>
             <td class="td-num">
-              <input type="number" step="0.1" id="lenDesign" value="7003.0" class="input-cell text-center calc-trigger" />
+              <input type="number" step="0.1" id="lenDesign" value="7003.0" readonly class="input-cell text-center readonly-input" />
             </td>
 
-            <!-- ダイアフラム 設計値 -->
+            <!-- ダイアフラム 設計値 (READONLY) -->
             <td class="td-lbl">設計値</td>
-            <td class="td-num"><input type="number" step="0.1" id="dia1_design" value="1253.0" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia2_design" value="2257.0" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia3_design" value="" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia4_design" value="" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia5_design" value="" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia6_design" value="" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia7_design" value="" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia8_design" value="" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia9_design" value="" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia1_design" value="1253.0" readonly class="input-cell text-center readonly-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia2_design" value="2257.0" readonly class="input-cell text-center readonly-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia3_design" value="" readonly class="input-cell text-center readonly-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia4_design" value="" readonly class="input-cell text-center readonly-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia5_design" value="" readonly class="input-cell text-center readonly-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia6_design" value="" readonly class="input-cell text-center readonly-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia7_design" value="" readonly class="input-cell text-center readonly-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia8_design" value="" readonly class="input-cell text-center readonly-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia9_design" value="" readonly class="input-cell text-center readonly-input" /></td>
           </tr>
 
-          <!-- ROW 2: 実測値 -->
-          <tr>
-            <!-- 全長 実測値 -->
-            <td class="td-lbl">実測値</td>
+          <!-- ROW 2: 実測値 (EDITABLE!) -->
+          <tr class="row-actual-editable">
+            <!-- 全長 実測値 (EDITABLE) -->
+            <td class="td-lbl td-lbl-actual">実測値</td>
             <td class="td-num">
-              <input type="number" step="0.1" id="lenActual" value="7006.0" class="input-cell text-center calc-trigger" />
+              <input type="number" step="0.1" id="lenActual" value="7006.0" class="input-cell text-center calc-trigger editable-input" />
             </td>
 
-            <!-- ダイアフラム 実測値 -->
-            <td class="td-lbl">実測値</td>
-            <td class="td-num"><input type="number" step="0.1" id="dia1_actual" value="1254.0" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia2_actual" value="2256.0" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia3_actual" value="" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia4_actual" value="" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia5_actual" value="" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia6_actual" value="" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia7_actual" value="" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia8_actual" value="" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia9_actual" value="" class="input-cell text-center calc-trigger" /></td>
+            <!-- ダイアフラム 実測値 (EDITABLE) -->
+            <td class="td-lbl td-lbl-actual">実測値</td>
+            <td class="td-num"><input type="number" step="0.1" id="dia1_actual" value="1254.0" class="input-cell text-center calc-trigger editable-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia2_actual" value="2256.0" class="input-cell text-center calc-trigger editable-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia3_actual" value="" class="input-cell text-center calc-trigger editable-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia4_actual" value="" class="input-cell text-center calc-trigger editable-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia5_actual" value="" class="input-cell text-center calc-trigger editable-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia6_actual" value="" class="input-cell text-center calc-trigger editable-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia7_actual" value="" class="input-cell text-center calc-trigger editable-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia8_actual" value="" class="input-cell text-center calc-trigger editable-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="dia9_actual" value="" class="input-cell text-center calc-trigger editable-input" /></td>
           </tr>
 
-          <!-- ROW 3: 許容値 (RED) -->
+          <!-- ROW 3: 許容値 (READONLY) -->
           <tr>
-            <!-- 全長 許容値 -->
+            <!-- 全長 許容値 (READONLY) -->
             <td class="td-lbl text-red">許容値</td>
             <td class="td-num text-red">
-              <input type="text" id="lenTol" value="±3.0" class="input-cell text-center text-red font-bold calc-trigger" />
+              <input type="text" id="lenTol" value="±3.0" readonly class="input-cell text-center text-red font-bold readonly-input" />
             </td>
 
-            <!-- ダイアフラム 許容値 -->
+            <!-- ダイアフラム 許容値 (READONLY) -->
             <td class="td-lbl text-red">許容値</td>
-            <td class="td-num text-red"><input type="text" id="dia1_tol" value="±3.0" class="input-cell text-center text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="dia2_tol" value="±3.0" class="input-cell text-center text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="dia3_tol" value="" class="input-cell text-center text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="dia4_tol" value="" class="input-cell text-center text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="dia5_tol" value="" class="input-cell text-center text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="dia6_tol" value="" class="input-cell text-center text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="dia7_tol" value="" class="input-cell text-center text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="dia8_tol" value="" class="input-cell text-center text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="dia9_tol" value="" class="input-cell text-center text-red font-bold" /></td>
+            <td class="td-num text-red"><input type="text" id="dia1_tol" value="±3.0" readonly class="input-cell text-center text-red font-bold readonly-input" /></td>
+            <td class="td-num text-red"><input type="text" id="dia2_tol" value="±3.0" readonly class="input-cell text-center text-red font-bold readonly-input" /></td>
+            <td class="td-num text-red"><input type="text" id="dia3_tol" value="" readonly class="input-cell text-center text-red font-bold readonly-input" /></td>
+            <td class="td-num text-red"><input type="text" id="dia4_tol" value="" readonly class="input-cell text-center text-red font-bold readonly-input" /></td>
+            <td class="td-num text-red"><input type="text" id="dia5_tol" value="" readonly class="input-cell text-center text-red font-bold readonly-input" /></td>
+            <td class="td-num text-red"><input type="text" id="dia6_tol" value="" readonly class="input-cell text-center text-red font-bold readonly-input" /></td>
+            <td class="td-num text-red"><input type="text" id="dia7_tol" value="" readonly class="input-cell text-center text-red font-bold readonly-input" /></td>
+            <td class="td-num text-red"><input type="text" id="dia8_tol" value="" readonly class="input-cell text-center text-red font-bold readonly-input" /></td>
+            <td class="td-num text-red"><input type="text" id="dia9_tol" value="" readonly class="input-cell text-center text-red font-bold readonly-input" /></td>
           </tr>
 
-          <!-- ROW 4: 差 AND DIMENSION FORMULA AT BOTTOM -->
+          <!-- ROW 4: 差 AND DIMENSION FORMULA AT BOTTOM (READONLY) -->
           <tr>
             <td class="td-square-cell text-center">
-              <input type="text" value="□" class="input-cell text-center square-input" />
+              <input type="text" value="□" readonly class="input-cell text-center square-input readonly-input" />
             </td>
             <td class="td-dim-spec text-left">
-              <input type="text" id="dimSpec" value="950 × 950 × 50 / 50 × 7,003" class="input-cell dim-spec-input" />
+              <input type="text" id="dimSpec" value="950 × 950 × 50 / 50 × 7,003" readonly class="input-cell dim-spec-input readonly-input" />
             </td>
 
-            <!-- 全長 差 -->
+            <!-- 全長 差 (READONLY) -->
             <td class="td-lbl">差</td>
             <td class="td-num">
-              <input type="text" id="lenDiff" value="+3" readonly class="input-cell text-center font-bold diff-output" />
+              <input type="text" id="lenDiff" value="+3" readonly class="input-cell text-center font-bold diff-output readonly-input" />
             </td>
 
-            <!-- ダイアフラム 差 -->
+            <!-- ダイアフラム 差 (READONLY) -->
             <td class="td-lbl">差</td>
-            <td class="td-num"><input type="text" id="dia1_diff" value="+1" readonly class="input-cell text-center font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="dia2_diff" value="-1" readonly class="input-cell text-center font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="dia3_diff" value="" readonly class="input-cell text-center font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="dia4_diff" value="" readonly class="input-cell text-center font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="dia5_diff" value="" readonly class="input-cell text-center font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="dia6_diff" value="" readonly class="input-cell text-center font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="dia7_diff" value="" readonly class="input-cell text-center font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="dia8_diff" value="" readonly class="input-cell text-center font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="dia9_diff" value="" readonly class="input-cell text-center font-bold diff-output" /></td>
+            <td class="td-num"><input type="text" id="dia1_diff" value="+1" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            <td class="td-num"><input type="text" id="dia2_diff" value="-1" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            <td class="td-num"><input type="text" id="dia3_diff" value="" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            <td class="td-num"><input type="text" id="dia4_diff" value="" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            <td class="td-num"><input type="text" id="dia5_diff" value="" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            <td class="td-num"><input type="text" id="dia6_diff" value="" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            <td class="td-num"><input type="text" id="dia7_diff" value="" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            <td class="td-num"><input type="text" id="dia8_diff" value="" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            <td class="td-num"><input type="text" id="dia9_diff" value="" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
           </tr>
 
         </tbody>
@@ -245,95 +245,95 @@
         </thead>
 
         <tbody>
-          <!-- ROW 1: 設計値 -->
+          <!-- ROW 1: 設計値 (READONLY) -->
           <tr>
             <td class="td-lbl">設計値</td>
-            <td class="td-num"><input type="number" step="0.1" id="head_n_design" value="950" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="head_s_design" value="950" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="head_e_design" value="950" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="head_w_design" value="950" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="head_n_design" value="950" readonly class="input-cell text-center readonly-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="head_s_design" value="950" readonly class="input-cell text-center readonly-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="head_e_design" value="950" readonly class="input-cell text-center readonly-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="head_w_design" value="950" readonly class="input-cell text-center readonly-input" /></td>
 
-            <td class="td-num"><input type="number" step="0.1" id="base_n_design" value="950" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="base_s_design" value="950" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="base_e_design" value="950" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="base_w_design" value="950" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="base_n_design" value="950" readonly class="input-cell text-center readonly-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="base_s_design" value="950" readonly class="input-cell text-center readonly-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="base_e_design" value="950" readonly class="input-cell text-center readonly-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="base_w_design" value="950" readonly class="input-cell text-center readonly-input" /></td>
 
-            <td class="td-num"><input type="number" step="0.1" id="bend_e_design" value="0" class="input-cell text-center font-bold calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="bend_s_design" value="0" class="input-cell text-center font-bold calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="twist_design" value="0" class="input-cell text-center font-bold calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="bend_e_design" value="0" readonly class="input-cell text-center font-bold readonly-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="bend_s_design" value="0" readonly class="input-cell text-center font-bold readonly-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="twist_design" value="0" readonly class="input-cell text-center font-bold readonly-input" /></td>
 
             <td rowspan="4" class="td-verdict-col">
-              <input type="text" id="thicknessStatus" value="適" class="input-cell text-center font-bold" />
+              <input type="text" id="thicknessStatus" value="適" class="input-cell text-center font-bold editable-input" />
             </td>
             <td rowspan="4" class="td-verdict-col">
-              <input type="text" id="materialStatus" value="適" class="input-cell text-center font-bold" />
+              <input type="text" id="materialStatus" value="適" class="input-cell text-center font-bold editable-input" />
             </td>
             <td rowspan="4" class="td-verdict-col">
-              <input type="text" id="appearanceStatus" value="適" class="input-cell text-center font-bold" />
+              <input type="text" id="appearanceStatus" value="適" class="input-cell text-center font-bold editable-input" />
             </td>
             <td rowspan="4" class="td-verdict-col td-final-verdict">
-              <input type="text" id="finalVerdict" value="合" class="input-cell text-center font-bold verdict-pass" />
+              <input type="text" id="finalVerdict" value="合" class="input-cell text-center font-bold verdict-pass editable-input" />
             </td>
             <td rowspan="4" class="td-date-col text-center">
-              <input type="text" id="inspectDate" value="9/4" class="input-cell text-center" />
+              <input type="text" id="inspectDate" value="9/4" class="input-cell text-center editable-input" />
             </td>
             <td rowspan="4" class="td-bikou-col">
-              <textarea id="remarks" class="textarea-cell"></textarea>
+              <textarea id="remarks" class="textarea-cell editable-input"></textarea>
             </td>
           </tr>
 
-          <!-- ROW 2: 実測値 -->
-          <tr>
-            <td class="td-lbl">実測値</td>
-            <td class="td-num"><input type="number" step="0.1" id="head_n_actual" value="950" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="head_s_actual" value="949" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="head_e_actual" value="951" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="head_w_actual" value="951" class="input-cell text-center calc-trigger" /></td>
+          <!-- ROW 2: 実測値 (EDITABLE!) -->
+          <tr class="row-actual-editable">
+            <td class="td-lbl td-lbl-actual">実測値</td>
+            <td class="td-num"><input type="number" step="0.1" id="head_n_actual" value="950" class="input-cell text-center calc-trigger editable-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="head_s_actual" value="949" class="input-cell text-center calc-trigger editable-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="head_e_actual" value="951" class="input-cell text-center calc-trigger editable-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="head_w_actual" value="951" class="input-cell text-center calc-trigger editable-input" /></td>
 
-            <td class="td-num"><input type="number" step="0.1" id="base_n_actual" value="952" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="base_s_actual" value="952" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="base_e_actual" value="953" class="input-cell text-center calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="base_w_actual" value="952" class="input-cell text-center calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="base_n_actual" value="952" class="input-cell text-center calc-trigger editable-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="base_s_actual" value="952" class="input-cell text-center calc-trigger editable-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="base_e_actual" value="953" class="input-cell text-center calc-trigger editable-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="base_w_actual" value="952" class="input-cell text-center calc-trigger editable-input" /></td>
 
-            <td class="td-num"><input type="number" step="0.1" id="bend_e_actual" value="-0.5" class="input-cell text-center font-bold calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="bend_s_actual" value="0" class="input-cell text-center font-bold calc-trigger" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="twist_actual" value="1.5" class="input-cell text-center font-bold calc-trigger" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="bend_e_actual" value="-0.5" class="input-cell text-center font-bold calc-trigger editable-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="bend_s_actual" value="0" class="input-cell text-center font-bold calc-trigger editable-input" /></td>
+            <td class="td-num"><input type="number" step="0.1" id="twist_actual" value="1.5" class="input-cell text-center font-bold calc-trigger editable-input" /></td>
           </tr>
 
-          <!-- ROW 3: 許容値 (TOLERANCE - RED TEXT) -->
+          <!-- ROW 3: 許容値 (READONLY) -->
           <tr>
             <td class="td-lbl text-red">許容値</td>
-            <td class="td-num text-red"><input type="text" id="head_n_tol" value="±3" class="input-cell text-center text-red" /></td>
-            <td class="td-num text-red"><input type="text" id="head_s_tol" value="±3" class="input-cell text-center text-red" /></td>
-            <td class="td-num text-red"><input type="text" id="head_e_tol" value="±3" class="input-cell text-center text-red" /></td>
-            <td class="td-num text-red"><input type="text" id="head_w_tol" value="±3" class="input-cell text-center text-red" /></td>
+            <td class="td-num text-red"><input type="text" id="head_n_tol" value="±3" readonly class="input-cell text-center text-red readonly-input" /></td>
+            <td class="td-num text-red"><input type="text" id="head_s_tol" value="±3" readonly class="input-cell text-center text-red readonly-input" /></td>
+            <td class="td-num text-red"><input type="text" id="head_e_tol" value="±3" readonly class="input-cell text-center text-red readonly-input" /></td>
+            <td class="td-num text-red"><input type="text" id="head_w_tol" value="±3" readonly class="input-cell text-center text-red readonly-input" /></td>
 
-            <td class="td-num text-red"><input type="text" id="base_n_tol" value="±3" class="input-cell text-center text-red" /></td>
-            <td class="td-num text-red"><input type="text" id="base_s_tol" value="±3" class="input-cell text-center text-red" /></td>
-            <td class="td-num text-red"><input type="text" id="base_e_tol" value="±3" class="input-cell text-center text-red" /></td>
-            <td class="td-num text-red"><input type="text" id="base_w_tol" value="±3" class="input-cell text-center text-red" /></td>
+            <td class="td-num text-red"><input type="text" id="base_n_tol" value="±3" readonly class="input-cell text-center text-red readonly-input" /></td>
+            <td class="td-num text-red"><input type="text" id="base_s_tol" value="±3" readonly class="input-cell text-center text-red readonly-input" /></td>
+            <td class="td-num text-red"><input type="text" id="base_e_tol" value="±3" readonly class="input-cell text-center text-red readonly-input" /></td>
+            <td class="td-num text-red"><input type="text" id="base_w_tol" value="±3" readonly class="input-cell text-center text-red readonly-input" /></td>
 
-            <td class="td-num text-red"><input type="text" id="bend_e_tol" value="±4.5" class="input-cell text-center text-red font-bold" /></td>
-            <td class="td-num text-red"><input type="text" id="bend_s_tol" value="±4.5" class="input-cell text-center text-red font-bold" /></td>
-            <td class="td-num"><input type="text" id="twist_tol" value="5.0" class="input-cell text-center font-bold" /></td>
+            <td class="td-num text-red"><input type="text" id="bend_e_tol" value="±4.5" readonly class="input-cell text-center text-red font-bold readonly-input" /></td>
+            <td class="td-num text-red"><input type="text" id="bend_s_tol" value="±4.5" readonly class="input-cell text-center text-red font-bold readonly-input" /></td>
+            <td class="td-num"><input type="text" id="twist_tol" value="5.0" readonly class="input-cell text-center font-bold readonly-input" /></td>
           </tr>
 
-          <!-- ROW 4: 差 (DIFFERENCE) -->
+          <!-- ROW 4: 差 (READONLY) -->
           <tr>
             <td class="td-lbl">差</td>
-            <td class="td-num"><input type="text" id="head_n_diff" value="0" readonly class="input-cell text-center font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="head_s_diff" value="-1" readonly class="input-cell text-center font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="head_e_diff" value="+1" readonly class="input-cell text-center font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="head_w_diff" value="+1" readonly class="input-cell text-center font-bold diff-output" /></td>
+            <td class="td-num"><input type="text" id="head_n_diff" value="0" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            <td class="td-num"><input type="text" id="head_s_diff" value="-1" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            <td class="td-num"><input type="text" id="head_e_diff" value="+1" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            <td class="td-num"><input type="text" id="head_w_diff" value="+1" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
 
-            <td class="td-num"><input type="text" id="base_n_diff" value="+2" readonly class="input-cell text-center font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="base_s_diff" value="+2" readonly class="input-cell text-center font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="base_e_diff" value="+3" readonly class="input-cell text-center font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="base_w_diff" value="+2" readonly class="input-cell text-center font-bold diff-output" /></td>
+            <td class="td-num"><input type="text" id="base_n_diff" value="+2" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            <td class="td-num"><input type="text" id="base_s_diff" value="+2" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            <td class="td-num"><input type="text" id="base_e_diff" value="+3" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            <td class="td-num"><input type="text" id="base_w_diff" value="+2" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
 
-            <td class="td-num"><input type="text" id="bend_e_diff" value="-0.5" readonly class="input-cell text-center font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="bend_s_diff" value="0" readonly class="input-cell text-center font-bold diff-output" /></td>
-            <td class="td-num"><input type="text" id="twist_diff" value="1.5" readonly class="input-cell text-center font-bold diff-output" /></td>
+            <td class="td-num"><input type="text" id="bend_e_diff" value="-0.5" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            <td class="td-num"><input type="text" id="bend_s_diff" value="0" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            <td class="td-num"><input type="text" id="twist_diff" value="1.5" readonly class="input-cell text-center font-bold diff-output readonly-input" /></td>
           </tr>
         </tbody>
       </table>
