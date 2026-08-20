@@ -701,9 +701,9 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .diag-section-dim { width: 130px; }
 .diag-diagonal { width: 140px; }
-.diag-length { width: 240px; }
-.diag-bending { width: 220px; }
-.diag-twist { width: 100px; }
+.diag-length { width: 260px; }
+.diag-bending { width: 260px; }
+.diag-twist { width: 120px; }
 
 .diag-svg-container {
   width: 100%;
