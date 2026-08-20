@@ -102,13 +102,14 @@ body {
 
 /* ================= SHEET CONTAINER ================= */
 .sheet-container {
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
   background-color: var(--bg-sheet);
-  padding: 10px 10px;
+  padding: 16px 16px 20px 16px;
   border: 1px solid #cbd5e1;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 /* ================= HEADER SECTION ================= */
@@ -173,9 +174,9 @@ body {
 }
 
 .sheet-main-title {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 700;
-  letter-spacing: 8px;
+  letter-spacing: 5px;
   color: var(--text-primary);
   text-indent: 8px;
 }
@@ -491,5 +492,328 @@ input[type="number"]::-webkit-outer-spin-button {
   @page {
     size: A4 landscape;
     margin: 10mm;
+  }
+
+}
+
+/* ================= Save Button & Sheet Actions ================= */
+.sheet-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed #cbd5e1;
+  width: 100%;
+}
+
+#hozon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #0d3b66;
+  color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 8px 22px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: all 0.15s ease-in-out;
+  line-height: 1.4;
+}
+
+#hozon-btn:hover {
+  background-color: #124a80;
+  box-shadow: 0 3px 8px rgba(13, 59, 102, 0.3);
+  transform: translateY(-1px);
+}
+
+#hozon-btn:active {
+  background-color: #092a4a;
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#hozon-btn i {
+  font-size: 13px;
+}
+
+/* ================= FORM TAB SWITCHER ================= */
+.form-tab-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #1e293b;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.tab-btn {
+  background: transparent;
+  color: #94a3b8;
+  border: none;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.tab-btn:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.tab-btn.active {
+  background-color: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ================= SHEET FORM VIEWS ================= */
+.sheet-form-view {
+  display: none;
+}
+
+.sheet-form-view.active {
+  display: block;
+}
+
+/* ================= FORM 2: DETAILED HEADER GRID ================= */
+.detailed-header-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr 220px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.order-info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.info-lbl {
+  width: 70px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.order-box-wrap {
+  border: 1.5px solid var(--border-dark);
+  padding: 1px 6px;
+  display: inline-block;
+}
+
+.underline-input {
+  border-bottom: 1px solid var(--border-dark) !important;
+  border-radius: 0;
+  flex: 1;
+  font-size: 13px;
+  padding: 1px 4px;
+}
+
+.header-center-title {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.stamp-meta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.page-no-text {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.company-name-text {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.approval-stamp-table {
+  border-collapse: collapse;
+  border: 1px solid var(--border-dark);
+  width: 120px;
+}
+
+.approval-stamp-table th,
+.approval-stamp-table td {
+  border: 1px solid var(--border-dark);
+  text-align: center;
+  font-size: 11px;
+  padding: 2px;
+}
+
+.approval-stamp-table th {
+  background-color: #f8fafc;
+  font-weight: 500;
+}
+
+.stamp-cell {
+  height: 48px;
+  width: 50%;
+  background-color: #ffffff;
+}
+
+/* ================= TECHNICAL SVG DIAGRAMS SECTION ================= */
+.diagrams-section {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 4px 4px;
+  position: relative;
+}
+
+.diagram-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  position: relative;
+}
+
+.diag-section-dim {
+  width: 130px;
+}
+
+.diag-diagonal {
+  width: 140px;
+}
+
+.diag-length {
+  width: 260px;
+}
+
+.diag-bending {
+  width: 260px;
+}
+
+.diag-twist {
+  width: 120px;
+}
+
+.diag-svg-container {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diagram-svg {
+  width: 100%;
+  height: 100%;
+  max-height: 100px;
+}
+
+.diag-caption {
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 4px;
+  line-height: 1.2;
+  min-height: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.sub-caption {
+  font-size: 9.5px;
+  font-weight: 400;
+  color: #334155;
+}
+
+.unit-indicator {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* ================= RESPONSIVE STYLES ================= */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .app-toolbar {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    padding: 10px 14px;
+  }
+
+  .form-tab-nav {
+    justify-content: center;
+  }
+
+  .toolbar-actions {
+    justify-content: space-between;
+  }
+
+  .sheet-container {
+    padding: 12px;
+  }
+
+  .detailed-header-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .stamp-meta-group {
+    align-items: flex-start;
+  }
+
+  .diagrams-section {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .sheet-header {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .sheet-actions {
+    justify-content: center;
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+
+  #hozon-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 20px;
+    font-size: 14px;
   }
 }

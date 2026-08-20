@@ -28,402 +28,1072 @@
     <div class="toolbar-brand">
       <i class="fa-solid fa-file-invoice"></i> B-BOX 製品検査表システム
     </div>
-    <!-- <div class="toolbar-actions">
-      <button id="btnLoadSample" class="btn btn-sm btn-secondary">
-        <i class="fa-solid fa-rotate-right"></i> サンプルデータ読み込み (Load Sample Data)
+
+    <!-- FORM TAB SWITCHER -->
+    <div class="form-tab-nav">
+      <button id="tabForm2" class="tab-btn active" onclick="switchForm('form-2')">
+        <i class="fa-solid fa-drafting-compass"></i> B-BOX製品検査表（DF無）
       </button>
-      <button id="btnCalculate" class="btn btn-sm btn-primary">
-        <i class="fa-solid fa-calculator"></i> 自動計算 (Calculate Diff)
+      <button id="tabForm1" class="tab-btn" onclick="switchForm('form-1')">
+        <i class="fa-solid fa-table-cells"></i> B-BOX製品検査表（DF有）
       </button>
-      <button id="btnPrint" class="btn btn-sm btn-success">
-        <i class="fa-solid fa-print"></i> 印刷 / PDF出力 (Print)
-      </button>
-    </div> -->
+    </div>
   </div>
 
   <!-- MAIN INSPECTION SHEET CONTAINER -->
   <div class="sheet-container">
-    <div class="header-center">
-      <h1 class="sheet-main-title">B - B O X 製 品 検 査 表</h1>
-    </div>
-    <!-- SHEET HEADER -->
-    <header class="sheet-header">
-      <div class="header-left">
-        <div class="header-row">
-          <span class="header-label">受注No. :</span>
-          <div class="order-box">
-            <input type="text" id="orderNo" value="25-1050" class="input-flat order-input readonly-input" />
+
+    <!-- =================================================================== -->
+    <!-- FORM 2: B-BOX DETAILED INSPECTION SHEET WITH SVG DIAGRAMS -->
+    <!-- =================================================================== -->
+    <div id="formDetailed" class="sheet-form-view active">
+      <div class="header-center-title">
+        <h1 class="sheet-main-title">B - B O X 製 品 検 査 表 （ D F 無 ）</h1>
+      </div>
+      <!-- TOP HEADER & STAMP GRID -->
+      <div class="detailed-header-grid">
+
+        <div class="order-info-group">
+          <div class="info-row">
+            <span class="info-lbl">受注No. :</span>
+            <div class="order-box-wrap">
+              <input type="text" id="d_orderNo" value="25-1050" class="input-flat order-input readonly-input" />
+            </div>
+          </div>
+          <div class="info-row">
+            <span class="info-lbl">工事名 :</span>
+            <input type="text" id="d_projectName" value="八重洲二丁目中地区再開発事業新築工事(1節)"
+              class="input-flat underline-input readonly-input" />
+          </div>
+          <div class="info-row">
+            <span class="info-lbl">持込先 :</span>
+            <input type="text" id="d_supplierName" value="株式会社 北川組鉄工所"
+              class="input-flat underline-input readonly-input" />
           </div>
         </div>
-        <div class="header-row">
-          <span class="header-label">工事名 :</span>
-          <span class="header-value">
-            <input type="text" id="projectName" value="八重洲二丁目地区再開発事業新築工事(1節)"
-              class="input-flat full-w-input readonly-input" />
-          </span>
+
+
+
+        <!-- <table class="approval-stamp-table">
+          <thead>
+            <tr>
+              <th>承 認</th>
+              <th>検 査</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="stamp-cell"></td>
+              <td class="stamp-cell"></td>
+            </tr>
+          </tbody>
+        </table> -->
+      </div>
+
+      <!-- TECHNICAL ENGINEERING DIAGRAMS BAR (5 TECHNICAL SVG DRAWINGS) -->
+      <div class="diagrams-section">
+        <!-- DIAGRAM 1: 断面寸法 -->
+        <div class="diagram-card diag-section-dim">
+          <div class="diag-svg-container">
+            <svg viewBox="0 0 150 120" class="diagram-svg">
+              <!-- Built-up Box Column Section (Top & Bottom Flanges, Inner Webs) -->
+              <rect x="45" y="30" width="60" height="6" fill="#fff" stroke="#000" stroke-width="1.5" />
+              <rect x="45" y="84" width="60" height="6" fill="#fff" stroke="#000" stroke-width="1.5" />
+              <line x1="51" y1="36" x2="51" y2="84" stroke="#000" stroke-width="1" />
+              <line x1="99" y1="36" x2="99" y2="84" stroke="#000" stroke-width="1" />
+              <!-- <rect x="51" y="36" width="6" height="48" fill="#fff" stroke="#000" stroke-width="1.5" /> -->
+              <!-- <rect x="93" y="36" width="6" height="48" fill="#fff" stroke="#000" stroke-width="1.5" /> -->
+
+              <!-- Outer Box Boundary -->
+              <rect x="45" y="30" width="60" height="60" fill="none" stroke="#000" stroke-width="1.5" />
+
+              <!-- Top Dimension E -->
+              <line x1="45" y1="32" x2="45" y2="10" stroke="#000" stroke-width="0.8" />
+              <line x1="105" y1="32" x2="105" y2="10" stroke="#000" stroke-width="0.8" />
+              <line x1="38" y1="16" x2="67" y2="16" stroke="#000" stroke-width="0.8" />
+              <line x1="83" y1="16" x2="112" y2="16" stroke="#000" stroke-width="0.8" />
+              <circle cx="45" cy="16" r="3.5" fill="#000" />
+              <circle cx="105" cy="16" r="3.5" fill="#000" />
+              <text x="75" y="20" text-anchor="middle" font-size="13" font-family="'Times New Roman', serif">E</text>
+
+              <!-- Bottom Dimension W -->
+              <line x1="45" y1="88" x2="45" y2="110" stroke="#000" stroke-width="0.8" />
+              <line x1="105" y1="88" x2="105" y2="110" stroke="#000" stroke-width="0.8" />
+              <line x1="38" y1="104" x2="65" y2="104" stroke="#000" stroke-width="0.8" />
+              <line x1="85" y1="104" x2="112" y2="104" stroke="#000" stroke-width="0.8" />
+              <circle cx="45" cy="104" r="3.5" fill="#000" />
+              <circle cx="105" cy="104" r="3.5" fill="#000" />
+              <text x="75" y="108" text-anchor="middle" font-size="13" font-family="'Times New Roman', serif">W</text>
+
+              <!-- Left Dimension N -->
+              <line x1="47" y1="30" x2="22" y2="30" stroke="#000" stroke-width="0.8" />
+              <line x1="47" y1="90" x2="22" y2="90" stroke="#000" stroke-width="0.8" />
+              <line x1="28" y1="23" x2="28" y2="48" stroke="#000" stroke-width="0.8" />
+              <line x1="28" y1="72" x2="28" y2="97" stroke="#000" stroke-width="0.8" />
+              <circle cx="28" cy="30" r="3.5" fill="#000" />
+              <circle cx="28" cy="90" r="3.5" fill="#000" />
+              <text x="28" y="64" text-anchor="middle" font-size="13" font-family="'Times New Roman', serif">N</text>
+
+              <!-- Right Dimension S -->
+              <line x1="103" y1="30" x2="128" y2="30" stroke="#000" stroke-width="0.8" />
+              <line x1="103" y1="90" x2="128" y2="90" stroke="#000" stroke-width="0.8" />
+              <line x1="122" y1="23" x2="122" y2="48" stroke="#000" stroke-width="0.8" />
+              <line x1="122" y1="72" x2="122" y2="97" stroke="#000" stroke-width="0.8" />
+              <circle cx="122" cy="30" r="3.5" fill="#000" />
+              <circle cx="122" cy="90" r="3.5" fill="#000" />
+              <text x="122" y="64" text-anchor="middle" font-size="13" font-family="'Times New Roman', serif">S</text>
+
+              <!-- Thickness Mark t1 -->
+              <line x1="94" y1="60" x2="108" y2="60" stroke="#000" stroke-width="0.8" />
+              <text x="96" y="57" text-anchor="end" font-size="11" font-family="'Times New Roman', serif">t1</text>
+
+              <!-- Thickness Mark t2 -->
+              <line x1="70" y1="78" x2="70" y2="92" stroke="#000" stroke-width="0.8" />
+              <text x="66" y="80" text-anchor="end" font-size="11" font-family="'Times New Roman', serif">t2</text>
+            </svg>
+          </div>
+          <div class="diag-caption">( 断面寸法 )</div>
         </div>
-        <div class="header-row">
-          <span class="header-label">持込先 :</span>
-          <span class="header-value">
-            <input type="text" id="supplierName" value="株式会社 北川組鉄工所" class="input-flat full-w-input readonly-input" />
-          </span>
+
+        <!-- DIAGRAM 2: 対角寸法 -->
+        <div class="diagram-card diag-diagonal">
+          <div class="diag-svg-container">
+            <svg viewBox="0 0 150 120" class="diagram-svg">
+              <!-- Outer Square Box Boundary -->
+              <rect x="45" y="30" width="60" height="60" fill="none" stroke="#000" stroke-width="1.5" />
+
+              <!-- Flange & Web Plate Internal Lines -->
+              <line x1="45" y1="36" x2="105" y2="36" stroke="#000" stroke-width="1" />
+              <line x1="45" y1="84" x2="105" y2="84" stroke="#000" stroke-width="1" />
+              <line x1="51" y1="36" x2="51" y2="84" stroke="#000" stroke-width="1" />
+              <line x1="99" y1="36" x2="99" y2="84" stroke="#000" stroke-width="1" />
+
+              <!-- Inner Square Measurement Boundary -->
+              <rect x="51" y="36" width="48" height="48" fill="none" stroke="#000" stroke-width="1" />
+
+              <!-- Crossed Diagonal Lines (X) -->
+              <line x1="51" y1="36" x2="99" y2="84" stroke="#000" stroke-width="1.2" />
+              <line x1="51" y1="84" x2="99" y2="36" stroke="#000" stroke-width="1.2" />
+
+              <!-- Corner Arrowheads (Pointing outward directly into the 4 inner corners) -->
+              <!-- Top-Left Corner (51, 36) -->
+              <polygon points="51,36 61,38 54,46" fill="#000" />
+              <!-- Top-Right Corner (99, 36) -->
+              <polygon points="99,36 89,38 96,46" fill="#000" />
+              <!-- Bottom-Left Corner (51, 84) -->
+              <polygon points="51,84 61,82 54,74" fill="#000" />
+              <!-- Bottom-Right Corner (99, 84) -->
+              <polygon points="99,84 89,82 96,74" fill="#000" />
+
+              <!-- Outer Side & Corner Labels -->
+              <text x="32" y="20" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif">D1</text>
+              <text x="118" y="20" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif">D2</text>
+              <text x="75" y="20" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif">E</text>
+              <text x="75" y="108" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif">W</text>
+              <text x="28" y="64" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif">N</text>
+              <text x="122" y="64" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif">S</text>
+            </svg>
+          </div>
+          <div class="diag-caption"><span>( 対角寸法 )</span><span class="sub-caption">(開先有のときは内寸法)</span></div>
+        </div>
+
+        <!-- DIAGRAM 3: 全長・ダイアフラム位置 -->
+        <div class="diagram-card diag-length">
+          <div class="diag-svg-container">
+            <svg viewBox="0 0 280 120" class="diagram-svg">
+              <!-- Left "TOP" Box -->
+              <rect x="6" y="54" width="36" height="24" fill="none" stroke="#000" stroke-width="1.2" />
+              <text x="24" y="70" text-anchor="middle" font-size="13" font-family="'Times New Roman', serif">TOP</text>
+
+              <!-- Main Column Box Section Outer Boundary -->
+              <rect x="52" y="50" width="220" height="40" fill="none" stroke="#000" stroke-width="1.5" />
+
+              <!-- Top and Bottom Flange Inner Lines -->
+              <line x1="52" y1="54" x2="272" y2="54" stroke="#000" stroke-width="1" />
+              <line x1="52" y1="86" x2="272" y2="86" stroke="#000" stroke-width="1" />
+
+              <!-- Top Dimension Line L and Extension Lines -->
+              <line x1="52" y1="50" x2="52" y2="6" stroke="#000" stroke-width="0.8" />
+              <line x1="272" y1="50" x2="272" y2="6" stroke="#000" stroke-width="0.8" />
+              <line x1="52" y1="18" x2="272" y2="18" stroke="#000" stroke-width="0.9" />
+
+              <!-- Arrowheads for Dimension Line L -->
+              <polygon points="52,18 60,15 60,21" fill="#000" />
+              <polygon points="272,18 264,15 264,21" fill="#000" />
+              <text x="162" y="14" text-anchor="middle" font-size="16" font-family="'Times New Roman', serif">L</text>
+
+              <!-- Diaphragm 1 to 9 Positions (Dashed Double Vertical Lines) & Position Labels -->
+              <!-- 1 -->
+              <line x1="72.5" y1="54" x2="72.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <line x1="75.5" y1="54" x2="75.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <text x="74" y="44" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif">1</text>
+
+              <!-- 2 -->
+              <line x1="94.5" y1="54" x2="94.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <line x1="97.5" y1="54" x2="97.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <text x="96" y="44" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif">2</text>
+
+              <!-- 3 -->
+              <line x1="116.5" y1="54" x2="116.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <line x1="119.5" y1="54" x2="119.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <text x="118" y="44" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif">3</text>
+
+              <!-- 4 -->
+              <line x1="138.5" y1="54" x2="138.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <line x1="141.5" y1="54" x2="141.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <text x="140" y="44" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif">4</text>
+
+              <!-- 5 -->
+              <line x1="160.5" y1="54" x2="160.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <line x1="163.5" y1="54" x2="163.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <text x="162" y="44" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif">5</text>
+
+              <!-- 6 -->
+              <line x1="182.5" y1="54" x2="182.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <line x1="185.5" y1="54" x2="185.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <text x="184" y="44" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif">6</text>
+
+              <!-- 7 -->
+              <line x1="204.5" y1="54" x2="204.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <line x1="207.5" y1="54" x2="207.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <text x="206" y="44" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif">7</text>
+
+              <!-- 8 -->
+              <line x1="226.5" y1="54" x2="226.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <line x1="229.5" y1="54" x2="229.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <text x="228" y="44" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif">8</text>
+
+              <!-- 9 -->
+              <line x1="248.5" y1="54" x2="248.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <line x1="251.5" y1="54" x2="251.5" y2="86" stroke="#000" stroke-width="0.8" stroke-dasharray="2.5,1.5" />
+              <text x="250" y="44" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif">9</text>
+            </svg>
+          </div>
+          <div class="diag-caption"><span>( 全長・ダイアフラム位置 )</span></div>
+        </div>
+
+        <!-- DIAGRAM 4: 曲がり -->
+        <div class="diagram-card diag-bending">
+          <div class="diag-svg-container">
+            <svg viewBox="0 0 260 145" class="diagram-svg">
+              <!-- 3D Box Column Structure -->
+              <!-- Front Left Face (柱頭) Outer Rect -->
+              <rect x="24" y="90" width="46" height="46" fill="#fff" stroke="#000" stroke-width="1.5" />
+              <rect x="24" y="96" width="46" height="34" fill="none" stroke="#000" stroke-width="1" />
+              <line x1="30" y1="96" x2="30" y2="130" stroke="#000" stroke-width="1" />
+              <line x1="64" y1="96" x2="64" y2="130" stroke="#000" stroke-width="1" />
+              <text x="47" y="118" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif"
+                font-weight="bold">柱頭</text>
+
+              <!-- Top Face Outline -->
+              <polygon points="24,90 70,90 205,30 159,30" fill="none" stroke="#000" stroke-width="1.5" />
+
+              <!-- Right Side Face Outline -->
+              <polygon points="70,90 70,136 205,76 205,30" fill="none" stroke="#000" stroke-width="1.5" />
+
+              <!-- Top Face Centerline & Extended Tail -->
+              <line x1="47" y1="90" x2="225" y2="11" stroke="#000" stroke-width="0.8" />
+
+              <!-- Top Face Bending Dashed Curves (横曲り) -->
+              <path d="M 47,90 Q 100,48 182,30" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="2.5,2" />
+              <path d="M 47,90 Q 128,72 182,30" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="2.5,2" />
+
+              <!-- Side Face Centerline & Extended Tail -->
+              <line x1="70" y1="113" x2="222" y2="45" stroke="#000" stroke-width="0.8" />
+
+              <!-- Side Face Bending Dashed Curves (縦曲り) -->
+              <path d="M 70,113 Q 137,64 205,53" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="2.5,2" />
+              <path d="M 70,113 Q 137,100 205,53" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="2.5,2" />
+
+              <!-- TOP ANNOTATIONS: 横曲り, ( - ), ( + ), and Arrow Indicator -->
+              <text x="115" y="14" text-anchor="middle" font-size="14" font-family="'Times New Roman', serif">横曲り</text>
+              <text x="115" y="28" text-anchor="middle" font-size="13" font-family="'Times New Roman', serif">( - ) , (
+                + )</text>
+
+              <!-- Vertical Guide Lines from (-) and (+) to Top Face -->
+              <line x1="97" y1="30" x2="97" y2="67" stroke="#000" stroke-width="0.6" />
+              <line x1="133" y1="30" x2="133" y2="52" stroke="#000" stroke-width="0.6" />
+
+              <!-- Center Dot & Vertical Stem on Top Face Centerline -->
+              <circle cx="115" cy="60" r="3" fill="#000" />
+              <line x1="115" y1="60" x2="115" y2="31" stroke="#000" stroke-width="0.8" />
+
+              <!-- Horizontal Arrow Line for 横曲り -->
+              <line x1="97" y1="41" x2="133" y2="41" stroke="#000" stroke-width="0.8" />
+              <polygon points="97,41 103,38 103,44" fill="#000" />
+              <polygon points="133,41 127,38 127,44" fill="#000" />
+
+              <!-- SIDE ANNOTATIONS: 縦曲り, (+), (-), and Vertical Arrow Indicator -->
+              <text x="176" y="110" text-anchor="middle" font-size="14"
+                font-family="'Times New Roman', serif">縦曲り</text>
+              <text x="148" y="70" text-anchor="start" font-size="12" font-family="'Times New Roman', serif">( +
+                )</text>
+              <text x="148" y="93" text-anchor="start" font-size="12" font-family="'Times New Roman', serif">( -
+                )</text>
+
+              <!-- Center Dot & Vertical Arrows on Side Face Centerline -->
+              <circle cx="137" cy="84" r="3" fill="#000" />
+              <line x1="137" y1="71" x2="137" y2="97" stroke="#000" stroke-width="0.8" />
+              <polygon points="137,71 134,77 140,77" fill="#000" />
+              <polygon points="137,97 134,91 140,91" fill="#000" />
+            </svg>
+          </div>
+          <div class="diag-caption"><span>( 曲がり )</span></div>
+        </div>
+
+        <!-- DIAGRAM 5: ねじれ -->
+        <div class="diagram-card diag-twist">
+          <div class="diag-svg-container">
+            <svg viewBox="0 0 120 135" class="diagram-svg">
+              <!-- Vertical Dot-Dash Center Line Axis -->
+              <line x1="51" y1="8" x2="51" y2="120" stroke="#000" stroke-width="0.8" stroke-dasharray="6,2,1.5,2"
+                stroke-opacity="0.5" />
+
+              <!-- Horizontal Dot-Dash Center Line Axis -->
+              <line x1="8" y1="48" x2="105" y2="48" stroke="#000" stroke-width="0.8" stroke-dasharray="6,2,1.5,2" />
+
+              <!-- Vertical Solid Line from Bottom Corner of Column to Delta Base -->
+              <line x1="66" y1="68" x2="66" y2="120" stroke="#000" stroke-width="0.9" />
+
+              <!-- Rotated Box Column Profile & Right Dimension 'A' -->
+              <g transform="translate(58,48) rotate(-25)">
+                <!-- Outer Box Boundary -->
+                <rect x="-20" y="-20" width="40" height="40" fill="#fff" stroke="#000" stroke-width="1.5" />
+
+                <!-- Flange & Web Plate Internal Lines -->
+                <line x1="-20" y1="-15" x2="20" y2="-15" stroke="#000" stroke-width="1" />
+                <line x1="-20" y1="15" x2="20" y2="15" stroke="#000" stroke-width="1" />
+                <line x1="-15" y1="-15" x2="-15" y2="15" stroke="#000" stroke-width="1" />
+                <line x1="15" y1="-15" x2="15" y2="15" stroke="#000" stroke-width="1" />
+
+                <!-- Center Tilted Axis Line Through Section -->
+                <line x1="0" y1="-28" x2="0" y2="28" stroke="#000" stroke-width="1" />
+
+                <!-- Right Side Dimension Ticks & Line for A -->
+                <line x1="20" y1="-20" x2="32" y2="-20" stroke="#000" stroke-width="0.8" />
+                <line x1="20" y1="20" x2="32" y2="20" stroke="#000" stroke-width="0.8" />
+                <line x1="28" y1="-24" x2="28" y2="24" stroke="#000" stroke-width="0.8" />
+                <circle cx="28" cy="-20" r="2.2" fill="#000" />
+                <circle cx="28" cy="20" r="2.2" fill="#000" />
+
+                <!-- Label A -->
+                <text x="36" y="4" text-anchor="start" font-size="15" font-family="'Times New Roman', serif"
+                  transform="rotate(25, 36, 4)">A</text>
+              </g>
+
+              <!-- Bottom Twist (δ) Dimension Line & Dots -->
+              <line x1="40" y1="105" x2="50" y2="105" stroke="#000" stroke-width="0.8" />
+              <line x1="66" y1="105" x2="76" y2="105" stroke="#000" stroke-width="0.8" />
+              <circle cx="50" cy="105" r="2.5" fill="#000" />
+              <circle cx="66" cy="105" r="2.5" fill="#000" />
+              <text x="58" y="109" text-anchor="middle" font-size="16" font-family="'Times New Roman', serif"
+                font-style="italic">δ</text>
+            </svg>
+          </div>
+          <div class="diag-caption"><span>( ねじれ )</span></div>
         </div>
       </div>
-    </header>
 
-    <!-- MAIN INSPECTION FORM TABLE -->
-    <div class="table-responsive">
-      <table class="bbox-inspection-table">
+      <!-- DETAILED FORM TABLE (TOP PART) -->
+      <div class="table-responsive">
+        <table class="bbox-inspection-table">
+          <thead>
+            <tr class="th-main-row">
+              <th class="col-hinban" rowspan="2">品番</th>
+              <th class="col-mark" rowspan="2">
+                <div class="th-mark-title">柱マーク</div>
+                <div class="th-sub-dim">寸法 : W × F × t1 / t2 × L</div>
+              </th>
+              <th class="col-zenchou" colspan="2">全長</th>
+              <th class="col-diaphragm-header" colspan="10">ダイアフラム位置 （ 累積 ）</th>
+            </tr>
+            <tr class="th-sub-num-row">
+              <th colspan="2" class="th-sub-l">L</th>
+              <th class="dia-lbl-col"></th>
+              <th class="dia-col">1</th>
+              <th class="dia-col">2</th>
+              <th class="dia-col">3</th>
+              <th class="dia-col">4</th>
+              <th class="dia-col">5</th>
+              <th class="dia-col">6</th>
+              <th class="dia-col">7</th>
+              <th class="dia-col">8</th>
+              <th class="dia-col">9</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4" class="td-hinban text-center">
+                <input type="text" id="d_itemNo" value="①-1" class="input-cell text-center font-bold readonly-input" />
+              </td>
+              <td rowspan="3" class="td-mark text-center">
+                <input type="text" id="d_columnMark" value="K-1CX5Y14"
+                  class="input-cell text-center font-bold font-lg readonly-input" />
+              </td>
+              <td class="td-lbl">設計値</td>
+              <td class="td-num"><input type="number" step="0.1" id="d_lenDesign" value="7003.0"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-lbl">設計値</td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia1_design" value="1253.0"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia2_design" value="2257.0"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia3_design" value=""
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia4_design" value=""
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia5_design" value=""
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia6_design" value=""
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia7_design" value=""
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia8_design" value=""
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia9_design" value=""
+                  class="input-cell text-center readonly-input" /></td>
+            </tr>
+            <tr>
+              <td class="td-lbl td-lbl-actual">実測値</td>
+              <td class="td-num"><input type="number" step="0.1" id="d_lenActual" value="7006.0"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-lbl td-lbl-actual">実測値</td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia1_actual" value="1254.0"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia2_actual" value="2256.0"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia3_actual" value=""
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia4_actual" value=""
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia5_actual" value=""
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia6_actual" value=""
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia7_actual" value=""
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia8_actual" value=""
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_dia9_actual" value=""
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+            </tr>
+            <tr>
+              <td class="td-lbl">許容値</td>
+              <td class="td-num"><input type="text" id="d_lenTol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-lbl">許容値</td>
+              <td class="td-num"><input type="text" id="d_dia1_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_dia2_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_dia3_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_dia4_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_dia5_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_dia6_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_dia7_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_dia8_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_dia9_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+            </tr>
+            <tr>
+              <td class="td-dim-spec text-center">
+                <input type="text" id="d_dimSpec" value="950 ×  950 ×  50 /  50 ×   7,003"
+                  class="input-cell text-center readonly-input" />
+              </td>
+              <td class="td-lbl">差</td>
+              <td class="td-num"><input type="text" id="d_lenDiff" value="+3.0"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-lbl">差</td>
+              <td class="td-num"><input type="text" id="d_dia1_diff" value="+1.0"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_dia2_diff" value="-1.0"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_dia3_diff" value=""
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_dia4_diff" value=""
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_dia5_diff" value=""
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_dia6_diff" value=""
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_dia7_diff" value=""
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_dia8_diff" value=""
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_dia9_diff" value=""
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-        <!-- TOP SECTION HEADERS -->
-        <thead>
-          <tr class="th-main-row">
-            <th class="col-hinban" rowspan="2">品番</th>
-            <th class="col-mark" rowspan="2">
-              <div class="th-mark-title">柱マーク</div>
-              <div class="th-sub-dim">寸法 : W × F × t1 / t2 × L</div>
-            </th>
-            <th class="col-zenchou" colspan="2">全長</th>
-            <th class="col-diaphragm-header" colspan="10">ダイアフラム位置 （ 累積 ）</th>
-          </tr>
-          <tr class="th-sub-num-row">
-            <th colspan="2" class="th-sub-l">L</th>
-            <th class="dia-lbl-col"></th>
-            <th class="dia-col">1</th>
-            <th class="dia-col">2</th>
-            <th class="dia-col">3</th>
-            <th class="dia-col">4</th>
-            <th class="dia-col">5</th>
-            <th class="dia-col">6</th>
-            <th class="dia-col">7</th>
-            <th class="dia-col">8</th>
-            <th class="dia-col">9</th>
-          </tr>
-        </thead>
+      <!-- DETAILED FORM TABLE (BOTTOM PART WITH DIAGONALS & INSPECTION CHECKS) -->
+      <div class="table-responsive" style="margin-top: -1px;">
+        <table class="bbox-inspection-table table-bottom-part">
+          <thead>
+            <tr class="th-main-row">
+              <th colspan="9" class="th-section-title">断 面 寸 法</th>
+              <th colspan="4" class="th-section-title">対 角 寸 法</th>
+              <th colspan="2" class="th-section-title">曲がり</th>
+              <th class="th-section-title">ねじれ</th>
+              <th rowspan="2" class="col-narrow">板厚</th>
+              <th rowspan="2" class="col-narrow">材質</th>
+              <th rowspan="2" class="col-narrow">端部<br>開先<br>加工</th>
+              <th rowspan="2" class="col-narrow">端部<br>直角<br>度</th>
+              <th rowspan="2" class="col-narrow">外観<br>検査</th>
+              <th rowspan="2" class="col-narrow">合否</th>
+              <th rowspan="2" class="col-date">検査日</th>
+            </tr>
+            <tr class="th-sub-dir-row">
+              <th class="col-row-lbl"></th>
+              <th colspan="4" class="th-column-head">柱 頭</th>
+              <th colspan="4" class="th-column-base">柱 脚</th>
+              <th colspan="2" class="th-column-head">柱頭</th>
+              <th colspan="2" class="th-column-base">柱脚</th>
+              <th class="dir-col">E面</th>
+              <th class="dir-col">S面</th>
+              <th class="dir-col">δ</th>
+            </tr>
+            <tr class="th-sub-dir-row">
+              <th class="col-row-lbl"></th>
+              <th class="dir-col">N</th>
+              <th class="dir-col">S</th>
+              <th class="dir-col">E</th>
+              <th class="dir-col">W</th>
+              <th class="dir-col">N</th>
+              <th class="dir-col">S</th>
+              <th class="dir-col">E</th>
+              <th class="dir-col">W</th>
+              <th class="dir-col">D1</th>
+              <th class="dir-col">D2</th>
+              <th class="dir-col">D1</th>
+              <th class="dir-col">D2</th>
+              <th class="dir-col"></th>
+              <th class="dir-col"></th>
+              <th class="dir-col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 設計値 ROW -->
+            <tr>
+              <td class="td-lbl">設計値</td>
+              <td class="td-num"><input type="number" id="d_head_n_design" value="950"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="d_head_s_design" value="950"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="d_head_e_design" value="950"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="d_head_w_design" value="950"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="d_base_n_design" value="950"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="d_base_s_design" value="950"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="d_base_e_design" value="950"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="d_base_w_design" value="950"
+                  class="input-cell text-center readonly-input" /></td>
 
-        <tbody>
+              <!-- 対角寸法 設計値 -->
+              <td class="td-num"><input type="number" id="d_diag_h_d1_design" value="1344"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="d_diag_h_d2_design" value="1344"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="d_diag_b_d1_design" value="1202"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="d_diag_b_d2_design" value="1202"
+                  class="input-cell text-center readonly-input" /></td>
 
-          <!-- ROW 1: 設計値 (READONLY) -->
-          <tr>
-            <td rowspan="3" class="td-hinban text-center">
-              <input type="text" id="itemNo" value="①-1" class="input-cell text-center font-bold readonly-input" />
-            </td>
-            <td rowspan="3" class="td-mark text-center">
-              <input type="text" id="columnMark" value="K-1CX5Y14"
-                class="input-cell text-center font-bold font-lg readonly-input" />
-            </td>
+              <!-- 曲がり・ねじれ 設計値 -->
+              <td class="td-num"><input type="number" id="d_bend_e_design" value="0"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="d_bend_s_design" value="0"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="d_twist_design" value="0"
+                  class="input-cell text-center readonly-input" /></td>
 
-            <!-- 全長 設計値 (READONLY) -->
-            <td class="td-lbl">設計値</td>
-            <td class="td-num">
-              <input type="number" step="0.1" id="lenDesign" value="7003.0"
-                class="input-cell text-center readonly-input" />
-            </td>
+              <!-- VERDICT & STATUS -->
+              <td rowspan="4" class="td-verdict-col"><input type="text" id="d_thicknessStatus" value="適"
+                  class="input-cell text-center readonly-input" /></td>
+              <td rowspan="4" class="td-verdict-col"><input type="text" id="d_materialStatus" value="適"
+                  class="input-cell text-center readonly-input" /></td>
+              <td rowspan="4" class="td-verdict-col"><input type="text" id="d_bevelStatus" value="適"
+                  class="input-cell text-center readonly-input" /></td>
+              <td rowspan="4" class="td-verdict-col"><input type="text" id="d_squareStatus" value="適"
+                  class="input-cell text-center readonly-input" /></td>
+              <td rowspan="4" class="td-verdict-col"><input type="text" id="d_appearanceStatus" value="適"
+                  class="input-cell text-center readonly-input" /></td>
+              <td rowspan="4" class="td-verdict-col td-final-verdict"><span class="verdict-pass font-bold">適合</span>
+              </td>
+              <td rowspan="4" class="td-verdict-col"><input type="text" id="d_inspectDate" value="9/4"
+                  class="input-cell text-center font-bold readonly-input" /></td>
+            </tr>
 
-            <!-- ダイアフラム 設計値 (READONLY) -->
-            <td class="td-lbl">設計値</td>
-            <td class="td-num"><input type="number" step="0.1" id="dia1_design" value="1253.0"
-                class="input-cell text-center readonly-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia2_design" value="2257.0"
-                class="input-cell text-center readonly-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia3_design" value=""
-                class="input-cell text-center readonly-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia4_design" value=""
-                class="input-cell text-center readonly-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia5_design" value=""
-                class="input-cell text-center readonly-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia6_design" value=""
-                class="input-cell text-center readonly-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia7_design" value=""
-                class="input-cell text-center readonly-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia8_design" value=""
-                class="input-cell text-center readonly-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia9_design" value=""
-                class="input-cell text-center readonly-input" /></td>
-          </tr>
+            <!-- 実測値 ROW -->
+            <tr class="row-actual-editable">
+              <td class="td-lbl td-lbl-actual">実測値</td>
+              <td class="td-num"><input type="number" id="d_head_n_actual" value="950"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="d_head_s_actual" value="949"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="d_head_e_actual" value="951"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="d_head_w_actual" value="951"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="d_base_n_actual" value="952"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="d_base_s_actual" value="952"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="d_base_e_actual" value="953"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="d_base_w_actual" value="952"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
 
-          <!-- ROW 2: 実測値 (EDITABLE!) -->
-          <tr class="row-actual-editable">
-            <!-- 全長 実測値 (EDITABLE) -->
-            <td class="td-lbl td-lbl-actual">実測値</td>
-            <td class="td-num">
-              <input type="number" step="0.1" id="lenActual" value="7006.0"
-                class="input-cell text-center calc-trigger editable-input" />
-            </td>
+              <!-- 対角寸法 実測値 -->
+              <td class="td-num"><input type="number" id="d_diag_h_d1_actual" value="1344"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="d_diag_h_d2_actual" value="1344"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="d_diag_b_d1_actual" value="1202"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="d_diag_b_d2_actual" value="1202"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
 
-            <!-- ダイアフラム 実測値 (EDITABLE) -->
-            <td class="td-lbl td-lbl-actual">実測値</td>
-            <td class="td-num"><input type="number" step="0.1" id="dia1_actual" value="1254.0"
-                class="input-cell text-center calc-trigger editable-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia2_actual" value="2256.0"
-                class="input-cell text-center calc-trigger editable-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia3_actual" value=""
-                class="input-cell text-center calc-trigger editable-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia4_actual" value=""
-                class="input-cell text-center calc-trigger editable-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia5_actual" value=""
-                class="input-cell text-center calc-trigger editable-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia6_actual" value=""
-                class="input-cell text-center calc-trigger editable-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia7_actual" value=""
-                class="input-cell text-center calc-trigger editable-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia8_actual" value=""
-                class="input-cell text-center calc-trigger editable-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="dia9_actual" value=""
-                class="input-cell text-center calc-trigger editable-input" /></td>
-          </tr>
+              <!-- 曲がり・ねじれ 実測値 -->
+              <td class="td-num"><input type="number" step="0.1" id="d_bend_e_actual" value="-0.5"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_bend_s_actual" value="0"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="d_twist_actual" value="1.5"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+            </tr>
 
-          <!-- ROW 3: 許容値 (READONLY) -->
-          <tr>
-            <!-- 全長 許容値 (READONLY) -->
-            <td class="td-lbl text-red">許容値</td>
-            <td class="td-num text-red">
-              <input type="text" id="lenTol" value="±3.0"
-                class="input-cell text-center text-red font-bold readonly-input" />
-            </td>
+            <!-- 許容値 ROW -->
+            <tr>
+              <td class="td-lbl">許容値</td>
+              <td class="td-num"><input type="text" id="d_head_n_tol" value="±3"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_head_s_tol" value="±3"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_head_e_tol" value="±3"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_head_w_tol" value="±3"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_base_n_tol" value="±3"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_base_s_tol" value="±3"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_base_e_tol" value="±3"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_base_w_tol" value="±3"
+                  class="input-cell text-center text-red readonly-input" /></td>
 
-            <!-- ダイアフラム 許容値 (READONLY) -->
-            <td class="td-lbl text-red">許容値</td>
-            <td class="td-num text-red"><input type="text" id="dia1_tol" value="±3.0"
-                class="input-cell text-center text-red font-bold readonly-input" /></td>
-            <td class="td-num text-red"><input type="text" id="dia2_tol" value="±3.0"
-                class="input-cell text-center text-red font-bold readonly-input" /></td>
-            <td class="td-num text-red"><input type="text" id="dia3_tol" value=""
-                class="input-cell text-center text-red font-bold readonly-input" /></td>
-            <td class="td-num text-red"><input type="text" id="dia4_tol" value=""
-                class="input-cell text-center text-red font-bold readonly-input" /></td>
-            <td class="td-num text-red"><input type="text" id="dia5_tol" value=""
-                class="input-cell text-center text-red font-bold readonly-input" /></td>
-            <td class="td-num text-red"><input type="text" id="dia6_tol" value=""
-                class="input-cell text-center text-red font-bold readonly-input" /></td>
-            <td class="td-num text-red"><input type="text" id="dia7_tol" value=""
-                class="input-cell text-center text-red font-bold readonly-input" /></td>
-            <td class="td-num text-red"><input type="text" id="dia8_tol" value=""
-                class="input-cell text-center text-red font-bold readonly-input" /></td>
-            <td class="td-num text-red"><input type="text" id="dia9_tol" value=""
-                class="input-cell text-center text-red font-bold readonly-input" /></td>
-          </tr>
+              <!-- 対角 許容値 -->
+              <td class="td-num"><input type="text" id="d_diag_h_d1_tol" value="-"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_diag_h_d2_tol" value="-"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_diag_b_d1_tol" value="-"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_diag_b_d2_tol" value="-"
+                  class="input-cell text-center readonly-input" /></td>
 
-          <!-- ROW 4: 差 AND DIMENSION FORMULA AT BOTTOM (READONLY) -->
-          <tr>
-            <td class="td-square-cell text-center">
-              <input type="text" value="□" class="input-cell text-center square-input readonly-input" />
-            </td>
-            <td class="td-dim-spec text-left">
-              <input type="text" id="dimSpec" value="950 × 950 × 50 / 50 × 7,003"
-                class="input-cell dim-spec-input readonly-input text-center" />
-            </td>
+              <!-- 曲がり・ねじれ 許容値 -->
+              <td class="td-num"><input type="text" id="d_bend_e_tol" value="±4.5"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_bend_s_tol" value="±4.5"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_twist_tol" value="5.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+            </tr>
 
-            <!-- 全長 差 (READONLY) -->
-            <td class="td-lbl">差</td>
-            <td class="td-num">
-              <input type="text" id="lenDiff" value="+3"
-                class="input-cell text-center font-bold diff-output readonly-input" />
-            </td>
+            <!-- 差 ROW -->
+            <tr>
+              <td class="td-lbl">差</td>
+              <td class="td-num"><input type="text" id="d_head_n_diff" value="0"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_head_s_diff" value="-1"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_head_e_diff" value="+1"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_head_w_diff" value="+1"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_base_n_diff" value="+2"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_base_s_diff" value="+2"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_base_e_diff" value="+3"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_base_w_diff" value="+2"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
 
-            <!-- ダイアフラム 差 (READONLY) -->
-            <td class="td-lbl">差</td>
-            <td class="td-num"><input type="text" id="dia1_diff" value="+1"
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-            <td class="td-num"><input type="text" id="dia2_diff" value="-1"
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-            <td class="td-num"><input type="text" id="dia3_diff" value=""
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-            <td class="td-num"><input type="text" id="dia4_diff" value=""
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-            <td class="td-num"><input type="text" id="dia5_diff" value=""
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-            <td class="td-num"><input type="text" id="dia6_diff" value=""
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-            <td class="td-num"><input type="text" id="dia7_diff" value=""
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-            <td class="td-num"><input type="text" id="dia8_diff" value=""
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-            <td class="td-num"><input type="text" id="dia9_diff" value=""
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-          </tr>
+              <!-- 対角 差 -->
+              <td class="td-num"><input type="text" id="d_diag_h_d1_diff" value="0"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_diag_h_d2_diff" value="0"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_diag_b_d1_diff" value="0"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_diag_b_d2_diff" value="0"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
 
-        </tbody>
-      </table>
-
-      <!-- SECTION 2: 断面寸法 & 変形・外観・合否 (CROSS SECTION & DEFORMATION) -->
-      <table class="bbox-inspection-table table-bottom-part">
-        <thead>
-          <!-- SECTION 2 HEADERS -->
-          <tr>
-            <th colspan="9" class="th-section-title">断 面 寸 法</th>
-            <th colspan="2" class="th-sub-section">曲り</th>
-            <th class="th-sub-section">ねじれ</th>
-            <th rowspan="3" class="col-narrow">板厚</th>
-            <th rowspan="3" class="col-narrow">材質</th>
-            <th rowspan="3" class="col-narrow">外観<br />検査</th>
-            <th rowspan="3" class="col-narrow">合否</th>
-            <th rowspan="3" class="col-date">検査日</th>
-            <th rowspan="3" class="col-bikou">備考</th>
-          </tr>
-          <tr>
-            <th rowspan="2" class="col-row-lbl"></th>
-            <th colspan="4" class="th-column-head">柱 頭</th>
-            <th colspan="4" class="th-column-base">柱 脚</th>
-            <th rowspan="2" class="th-sub-col">E面</th>
-            <th rowspan="2" class="th-sub-col">S面</th>
-            <th rowspan="2" class="th-sub-col">δ</th>
-          </tr>
-          <tr class="th-sub-dir-row">
-            <th class="dir-col">N</th>
-            <th class="dir-col">S</th>
-            <th class="dir-col">E</th>
-            <th class="dir-col">W</th>
-            <th class="dir-col">N</th>
-            <th class="dir-col">S</th>
-            <th class="dir-col">E</th>
-            <th class="dir-col">W</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <!-- ROW 1: 設計値 (READONLY) -->
-          <tr>
-            <td class="td-lbl">設計値</td>
-            <td class="td-num"><input type="number" step="0.1" id="head_n_design" value="950"
-                class="input-cell text-center readonly-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="head_s_design" value="950"
-                class="input-cell text-center readonly-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="head_e_design" value="950"
-                class="input-cell text-center readonly-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="head_w_design" value="950"
-                class="input-cell text-center readonly-input" /></td>
-
-            <td class="td-num"><input type="number" step="0.1" id="base_n_design" value="950"
-                class="input-cell text-center readonly-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="base_s_design" value="950"
-                class="input-cell text-center readonly-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="base_e_design" value="950"
-                class="input-cell text-center readonly-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="base_w_design" value="950"
-                class="input-cell text-center readonly-input" /></td>
-
-            <td class="td-num"><input type="number" step="0.1" id="bend_e_design" value="0"
-                class="input-cell text-center font-bold readonly-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="bend_s_design" value="0"
-                class="input-cell text-center font-bold readonly-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="twist_design" value="0"
-                class="input-cell text-center font-bold readonly-input" /></td>
-
-            <td rowspan="4" class="td-verdict-col">
-              <input type="text" id="thicknessStatus" value="適"
-                class="input-cell text-center font-bold editable-input" />
-            </td>
-            <td rowspan="4" class="td-verdict-col">
-              <input type="text" id="materialStatus" value="適"
-                class="input-cell text-center font-bold editable-input" />
-            </td>
-            <td rowspan="4" class="td-verdict-col">
-              <input type="text" id="appearanceStatus" value="適"
-                class="input-cell text-center font-bold editable-input" />
-            </td>
-            <td rowspan="4" class="td-verdict-col td-final-verdict">
-              <input type="text" id="finalVerdict" value="合"
-                class="input-cell text-center font-bold verdict-pass editable-input" />
-            </td>
-            <td rowspan="4" class="td-date-col text-center">
-              <input type="text" id="inspectDate" value="9/4" class="input-cell text-center editable-input" />
-            </td>
-            <td rowspan="4" class="td-bikou-col">
-              <textarea id="remarks" class="textarea-cell editable-input"></textarea>
-            </td>
-          </tr>
-
-          <!-- ROW 2: 実測値 (EDITABLE!) -->
-          <tr class="row-actual-editable">
-            <td class="td-lbl td-lbl-actual">実測値</td>
-            <td class="td-num"><input type="number" step="0.1" id="head_n_actual" value="950"
-                class="input-cell text-center calc-trigger editable-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="head_s_actual" value="949"
-                class="input-cell text-center calc-trigger editable-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="head_e_actual" value="951"
-                class="input-cell text-center calc-trigger editable-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="head_w_actual" value="951"
-                class="input-cell text-center calc-trigger editable-input" /></td>
-
-            <td class="td-num"><input type="number" step="0.1" id="base_n_actual" value="952"
-                class="input-cell text-center calc-trigger editable-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="base_s_actual" value="952"
-                class="input-cell text-center calc-trigger editable-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="base_e_actual" value="953"
-                class="input-cell text-center calc-trigger editable-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="base_w_actual" value="952"
-                class="input-cell text-center calc-trigger editable-input" /></td>
-
-            <td class="td-num"><input type="number" step="0.1" id="bend_e_actual" value="-0.5"
-                class="input-cell text-center font-bold calc-trigger editable-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="bend_s_actual" value="0"
-                class="input-cell text-center font-bold calc-trigger editable-input" /></td>
-            <td class="td-num"><input type="number" step="0.1" id="twist_actual" value="1.5"
-                class="input-cell text-center font-bold calc-trigger editable-input" /></td>
-          </tr>
-
-          <!-- ROW 3: 許容値 (READONLY) -->
-          <tr>
-            <td class="td-lbl text-red">許容値</td>
-            <td class="td-num text-red"><input type="text" id="head_n_tol" value="±3"
-                class="input-cell text-center text-red readonly-input" /></td>
-            <td class="td-num text-red"><input type="text" id="head_s_tol" value="±3"
-                class="input-cell text-center text-red readonly-input" /></td>
-            <td class="td-num text-red"><input type="text" id="head_e_tol" value="±3"
-                class="input-cell text-center text-red readonly-input" /></td>
-            <td class="td-num text-red"><input type="text" id="head_w_tol" value="±3"
-                class="input-cell text-center text-red readonly-input" /></td>
-
-            <td class="td-num text-red"><input type="text" id="base_n_tol" value="±3"
-                class="input-cell text-center text-red readonly-input" /></td>
-            <td class="td-num text-red"><input type="text" id="base_s_tol" value="±3"
-                class="input-cell text-center text-red readonly-input" /></td>
-            <td class="td-num text-red"><input type="text" id="base_e_tol" value="±3"
-                class="input-cell text-center text-red readonly-input" /></td>
-            <td class="td-num text-red"><input type="text" id="base_w_tol" value="±3"
-                class="input-cell text-center text-red readonly-input" /></td>
-
-            <td class="td-num text-red"><input type="text" id="bend_e_tol" value="±4.5"
-                class="input-cell text-center text-red font-bold readonly-input" /></td>
-            <td class="td-num text-red"><input type="text" id="bend_s_tol" value="±4.5"
-                class="input-cell text-center text-red font-bold readonly-input" /></td>
-            <td class="td-num"><input type="text" id="twist_tol" value="5.0"
-                class="input-cell text-center font-bold readonly-input" /></td>
-          </tr>
-
-          <!-- ROW 4: 差 (READONLY) -->
-          <tr>
-            <td class="td-lbl">差</td>
-            <td class="td-num"><input type="text" id="head_n_diff" value="0"
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-            <td class="td-num"><input type="text" id="head_s_diff" value="-1"
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-            <td class="td-num"><input type="text" id="head_e_diff" value="+1"
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-            <td class="td-num"><input type="text" id="head_w_diff" value="+1"
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-
-            <td class="td-num"><input type="text" id="base_n_diff" value="+2"
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-            <td class="td-num"><input type="text" id="base_s_diff" value="+2"
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-            <td class="td-num"><input type="text" id="base_e_diff" value="+3"
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-            <td class="td-num"><input type="text" id="base_w_diff" value="+2"
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-
-            <td class="td-num"><input type="text" id="bend_e_diff" value="-0.5"
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-            <td class="td-num"><input type="text" id="bend_s_diff" value="0"
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-            <td class="td-num"><input type="text" id="twist_diff" value="1.5"
-                class="input-cell text-center font-bold diff-output readonly-input" /></td>
-          </tr>
-        </tbody>
-      </table>
+              <!-- 曲がり・ねじれ 差 -->
+              <td class="td-num"><input type="text" id="d_bend_e_diff" value="-0.5"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_bend_s_diff" value="0"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="d_twist_diff" value="1.5"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
+    <!-- =================================================================== -->
+    <!-- FORM 1: B-BOX STANDARD INSPECTION SHEET -->
+    <!-- =================================================================== -->
+    <div id="formStandard" class="sheet-form-view">
+      <div class="header-center">
+        <h1 class="sheet-main-title">B - B O X 製 品 検 査 表 （ D F 有 ）</h1>
+      </div>
+      <header class="sheet-header">
+        <div class="header-left">
+          <div class="header-row">
+            <span class="header-label">受注No. :</span>
+            <div class="order-box">
+              <input type="text" id="orderNo" value="25-1050" class="input-flat order-input readonly-input" />
+            </div>
+          </div>
+          <div class="header-row">
+            <span class="header-label">工事名 :</span>
+            <span class="header-value">
+              <input type="text" id="projectName" value="八重洲二丁目地区再開発事業新築工事(1節)"
+                class="input-flat full-w-input readonly-input" />
+            </span>
+          </div>
+          <div class="header-row">
+            <span class="header-label">持込先 :</span>
+            <span class="header-value">
+              <input type="text" id="supplierName" value="株式会社 北川組鉄工所" class="input-flat full-w-input readonly-input" />
+            </span>
+          </div>
+        </div>
+      </header>
+
+      <div class="table-responsive">
+        <table class="bbox-inspection-table">
+          <thead>
+            <tr class="th-main-row">
+              <th class="col-hinban" rowspan="2">品番</th>
+              <th class="col-mark" rowspan="2">
+                <div class="th-mark-title">柱マーク</div>
+                <div class="th-sub-dim">寸法 : W × F × t1 / t2 × L</div>
+              </th>
+              <th class="col-zenchou" colspan="2">全長</th>
+              <th class="col-diaphragm-header" colspan="10">ダイアフラム位置 （ 累積 ）</th>
+            </tr>
+            <tr class="th-sub-num-row">
+              <th colspan="2" class="th-sub-l">L</th>
+              <th class="dia-lbl-col"></th>
+              <th class="dia-col">1</th>
+              <th class="dia-col">2</th>
+              <th class="dia-col">3</th>
+              <th class="dia-col">4</th>
+              <th class="dia-col">5</th>
+              <th class="dia-col">6</th>
+              <th class="dia-col">7</th>
+              <th class="dia-col">8</th>
+              <th class="dia-col">9</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td rowspan="3" class="td-hinban text-center">
+                <input type="text" id="itemNo" value="①-1" class="input-cell text-center font-bold readonly-input" />
+              </td>
+              <td rowspan="3" class="td-mark text-center">
+                <input type="text" id="columnMark" value="K-1CX5Y14"
+                  class="input-cell text-center font-bold font-lg readonly-input" />
+              </td>
+              <td class="td-lbl">設計値</td>
+              <td class="td-num"><input type="number" step="0.1" id="lenDesign" value="7003.0"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-lbl">設計値</td>
+              <td class="td-num"><input type="number" step="0.1" id="dia1_design" value="1253.0"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="dia2_design" value="2257.0"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="dia3_design" value=""
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="dia4_design" value=""
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="dia5_design" value=""
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="dia6_design" value=""
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="dia7_design" value=""
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="dia8_design" value=""
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="dia9_design" value=""
+                  class="input-cell text-center readonly-input" /></td>
+            </tr>
+            <tr>
+              <td class="td-lbl td-lbl-actual">実測値</td>
+              <td class="td-num"><input type="number" step="0.1" id="lenActual" value="7006.0"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-lbl td-lbl-actual">実測値</td>
+              <td class="td-num"><input type="number" step="0.1" id="dia1_actual" value="1254.0"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="dia2_actual" value="2256.0"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="dia3_actual" value=""
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="dia4_actual" value=""
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="dia5_actual" value=""
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="dia6_actual" value=""
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="dia7_actual" value=""
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="dia8_actual" value=""
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="dia9_actual" value=""
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+            </tr>
+            <tr>
+              <td class="td-lbl">許容値</td>
+              <td class="td-num"><input type="text" id="lenTol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-lbl">許容値</td>
+              <td class="td-num"><input type="text" id="dia1_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="dia2_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="dia3_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="dia4_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="dia5_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="dia6_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="dia7_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="dia8_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="dia9_tol" value="±3.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+            </tr>
+            <tr>
+              <td class="td-square-cell text-center">
+                <input type="text" value="□" class="input-cell text-center square-input readonly-input" />
+              </td>
+              <td class="td-dim-spec">
+                <input type="text" id="dimSpec" value="950 × 950 × 50 / 50 × 7,003"
+                  class="input-cell dim-spec-input readonly-input" />
+              </td>
+              <td class="td-lbl">差</td>
+              <td class="td-num"><input type="text" id="lenDiff" value="+3"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-lbl">差</td>
+              <td class="td-num"><input type="text" id="dia1_diff" value="+1"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="dia2_diff" value="-1"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="dia3_diff" value=""
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="dia4_diff" value=""
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="dia5_diff" value=""
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="dia6_diff" value=""
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="dia7_diff" value=""
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="dia8_diff" value=""
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="dia9_diff" value=""
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-responsive" style="margin-top: -1px;">
+        <table class="bbox-inspection-table table-bottom-part">
+          <thead>
+            <tr class="th-main-row">
+              <th colspan="9" class="th-section-title">断 面 寸 法</th>
+              <th colspan="2" class="th-section-title">曲がり</th>
+              <th class="th-section-title">ねじれ</th>
+              <th rowspan="2" class="col-narrow">板厚</th>
+              <th rowspan="2" class="col-narrow">材質</th>
+              <th rowspan="2" class="col-narrow">外観<br>検査</th>
+              <th rowspan="2" class="col-narrow">合否</th>
+              <th rowspan="2" class="col-date">検査日</th>
+              <th rowspan="2" class="col-bikou">備考</th>
+            </tr>
+            <tr class="th-sub-dir-row">
+              <th class="col-row-lbl"></th>
+              <th colspan="4" class="th-column-head">柱 頭</th>
+              <th colspan="4" class="th-column-base">柱 脚</th>
+              <th class="dir-col">E面</th>
+              <th class="dir-col">S面</th>
+              <th class="dir-col">δ</th>
+            </tr>
+            <tr class="th-sub-dir-row">
+              <th class="col-row-lbl"></th>
+              <th class="dir-col">N</th>
+              <th class="dir-col">S</th>
+              <th class="dir-col">E</th>
+              <th class="dir-col">W</th>
+              <th class="dir-col">N</th>
+              <th class="dir-col">S</th>
+              <th class="dir-col">E</th>
+              <th class="dir-col">W</th>
+              <th class="dir-col"></th>
+              <th class="dir-col"></th>
+              <th class="dir-col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-lbl">設計値</td>
+              <td class="td-num"><input type="number" id="head_n_design" value="950"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="head_s_design" value="950"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="head_e_design" value="950"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="head_w_design" value="950"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="base_n_design" value="950"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="base_s_design" value="950"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="base_e_design" value="950"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="base_w_design" value="950"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="bend_e_design" value="0"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="bend_s_design" value="0"
+                  class="input-cell text-center readonly-input" /></td>
+              <td class="td-num"><input type="number" id="twist_design" value="0"
+                  class="input-cell text-center readonly-input" /></td>
+
+              <td rowspan="4" class="td-verdict-col"><input type="text" id="thicknessStatus" value="適"
+                  class="input-cell text-center readonly-input" /></td>
+              <td rowspan="4" class="td-verdict-col"><input type="text" id="materialStatus" value="適"
+                  class="input-cell text-center readonly-input" /></td>
+              <td rowspan="4" class="td-verdict-col"><input type="text" id="appearanceStatus" value="適"
+                  class="input-cell text-center readonly-input" /></td>
+              <td rowspan="4" class="td-verdict-col td-final-verdict"><span class="verdict-pass font-bold">適合</span>
+              </td>
+              <td rowspan="4" class="td-verdict-col"><input type="text" id="inspectDate" value="9/4"
+                  class="input-cell text-center font-bold readonly-input" /></td>
+              <td rowspan="4" class="td-verdict-col"><textarea id="remarks"
+                  class="textarea-cell readonly-input"></textarea></td>
+            </tr>
+
+            <tr class="row-actual-editable">
+              <td class="td-lbl td-lbl-actual">実測値</td>
+              <td class="td-num"><input type="number" id="head_n_actual" value="950"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="head_s_actual" value="949"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="head_e_actual" value="951"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="head_w_actual" value="951"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="base_n_actual" value="952"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="base_s_actual" value="952"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="base_e_actual" value="953"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" id="base_w_actual" value="952"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="bend_e_actual" value="-0.5"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="bend_s_actual" value="0"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+              <td class="td-num"><input type="number" step="0.1" id="twist_actual" value="1.5"
+                  class="input-cell text-center font-bold editable-input calc-trigger" /></td>
+            </tr>
+
+            <tr>
+              <td class="td-lbl">許容値</td>
+              <td class="td-num"><input type="text" id="head_n_tol" value="±3"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="head_s_tol" value="±3"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="head_e_tol" value="±3"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="head_w_tol" value="±3"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="base_n_tol" value="±3"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="base_s_tol" value="±3"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="base_e_tol" value="±3"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="base_w_tol" value="±3"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="bend_e_tol" value="±4.5"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="bend_s_tol" value="±4.5"
+                  class="input-cell text-center text-red readonly-input" /></td>
+              <td class="td-num"><input type="text" id="twist_tol" value="5.0"
+                  class="input-cell text-center text-red readonly-input" /></td>
+            </tr>
+
+            <tr>
+              <td class="td-lbl">差</td>
+              <td class="td-num"><input type="text" id="head_n_diff" value="0"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="head_s_diff" value="-1"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="head_e_diff" value="+1"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="head_w_diff" value="+1"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="base_n_diff" value="+2"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="base_s_diff" value="+2"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="base_e_diff" value="+3"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="base_w_diff" value="+2"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="bend_e_diff" value="-0.5"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="bend_s_diff" value="0"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+              <td class="td-num"><input type="text" id="twist_diff" value="1.5"
+                  class="input-cell text-center font-bold diff-output readonly-input" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SHARED SAVE BUTTON ACTION BAR -->
+    <div id="hozon-button" class="sheet-actions no-print">
+      <button id="hozon-btn" onclick="saveData()">
+        <i class="fa-solid fa-floppy-disk"></i> 保存
+      </button>
+    </div>
   </div>
 
   <!-- SCRIPT LOGIC -->
