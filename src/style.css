@@ -622,7 +622,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .underline-input {
-  border-bottom: 1px solid var(--border-dark) !important;
+  /* border-bottom: 1px solid var(--border-dark) !important; */
   border-radius: 0;
   flex: 1;
   font-size: 13px;
